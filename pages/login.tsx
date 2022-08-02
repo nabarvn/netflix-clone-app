@@ -2,6 +2,7 @@ import Head from "next/head";
 import Image from "next/image";
 import { useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
+import useAuth from "../hooks/useAuth";
 
 interface Inputs {
   email: string;
@@ -10,6 +11,7 @@ interface Inputs {
 
 const login = () => {
   const [login, setLogin] = useState(false);
+  const { signIn, signUp } = useAuth();
 
   const {
     register,
@@ -17,10 +19,17 @@ const login = () => {
     formState: { errors },
   } = useForm<Inputs>();
 
-  const onSubmit: SubmitHandler<Inputs> = (data) => console.log(data);
+  const onSubmit: SubmitHandler<Inputs> = async ({ email, password }) => {
+    if (login) {
+      await signIn(email, password);
+    } else {
+      await signUp(email, password);
+    }
+  };
 
   return (
     <div className='relative flex h-screen w-screen flex-col bg-black md:items-center md:justify-center md:bg-transparent'>
+      {/* Head components are really good for SEO */}
       <Head>
         <title>Netflix</title>
         <link rel='icon' href='https://rb.gy/ulxxee' />
@@ -74,12 +83,19 @@ const login = () => {
             )}
           </label>
         </div>
-        <button className='w-full rounded bg-[#e50914] py-3 font-semibold'>
+        <button
+          className='w-full rounded bg-[#e50914] py-3 font-semibold'
+          onClick={() => setLogin(true)}
+        >
           Sign In
         </button>
         <div className='text-[gray]'>
           New to Netflix?
-          <button type='submit' className='text-white hover:underline px-3'>
+          <button
+            type='submit'
+            className='text-white hover:underline px-3'
+            onClick={() => setLogin(false)}
+          >
             Sign Up Now
           </button>
         </div>
