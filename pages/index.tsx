@@ -2,6 +2,7 @@ import Head from "next/head";
 import Banner from "../Components/Banner";
 import Header from "../Components/Header";
 import Row from "../Components/Row";
+import useAuth from "../hooks/useAuth";
 import { Movie } from "../typings";
 import requests from "../utils/requests";
 
@@ -61,6 +62,10 @@ const Home = ({
   romanceMovies,
   documentaries,
 }: Props) => {
+  const { logOut, loading } = useAuth();
+
+  if (loading) return null;
+
   return (
     <div
       /*className='flex min-h-screen flex-col items-center justify-center py-2'*/
