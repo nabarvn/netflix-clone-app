@@ -73,7 +73,9 @@ const Home = ({
   return (
     <div
       /*className='flex min-h-screen flex-col items-center justify-center py-2'*/
-      className='relative h-screen bg-gradient-to-b lg:h-[140vh]'
+      className={`relative h-screen bg-gradient-to-b lg:h-[140vh] ${
+        showModal && "!h-screen overflow-hidden"
+      }`}
     >
       <Head>
         <title>Netflix - Home</title>
