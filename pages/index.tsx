@@ -1,6 +1,9 @@
 import Head from "next/head";
+import { useRecoilValue } from "recoil";
+import { modalState } from "../atoms/modalAtom";
 import Banner from "../Components/Banner";
 import Header from "../Components/Header";
+import Modal from "../Components/Modal";
 import Row from "../Components/Row";
 import useAuth from "../hooks/useAuth";
 import { Movie } from "../typings";
@@ -62,7 +65,8 @@ const Home = ({
   romanceMovies,
   documentaries,
 }: Props) => {
-  const { logOut, loading } = useAuth();
+  const { loading } = useAuth();
+  const showModal = useRecoilValue(modalState);
 
   if (loading) return null;
 
@@ -92,7 +96,7 @@ const Home = ({
           <Row title='Documentaries' movies={documentaries} />
         </section>
       </main>
-      {/* Modal */}
+      {showModal && <Modal />}
     </div>
   );
 };
