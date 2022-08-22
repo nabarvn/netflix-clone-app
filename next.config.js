@@ -1,5 +1,11 @@
 /** @type {import('next').NextConfig} */
-module.exports = {
+
+// pass the modules you would like to see transpiled
+const withTM = require("next-transpile-modules")([
+  "@stripe/firestore-stripe-payments",
+]);
+
+module.exports = withTM({
   reactStrictMode: true,
   images: {
     domains: ["image.tmdb.org", "rb.gy"],
@@ -14,4 +20,4 @@ module.exports = {
     NEXT_APP_FIREBASE_MESSAGING_SENDER_ID: process.env.messagingSenderId,
     NEXT_APP_FIREBASE_APP_ID: process.env.appId,
   },
-};
+});
