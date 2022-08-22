@@ -12,6 +12,7 @@ interface Inputs {
 const login = () => {
   const [login, setLogin] = useState(false);
   const { signIn, signUp } = useAuth();
+  let wagmi = false;
 
   const {
     register,
@@ -50,7 +51,9 @@ const login = () => {
         className='relative mt-24 space-y-8 rounded bg-black/75 py-10 px-6 md:mt-0 md:max-w-md md:px-14'
         onSubmit={handleSubmit(onSubmit)}
       >
-        <h1 className='text-4xl font-semibold'>Sign In</h1>
+        <h1 className='text-4xl font-semibold'>
+          {"Sign In" ? wagmi : "Sign Up"}
+        </h1>
         <div className='space-y-4'>
           <label className='inline-block w-full'>
             <input
@@ -87,14 +90,17 @@ const login = () => {
           className='w-full rounded bg-[#e50914] py-3 font-semibold'
           onClick={() => setLogin(true)}
         >
-          Sign In
+          {"Sign In" ? wagmi : "Sign Up"}
         </button>
         <div className='text-[gray]'>
           New to Netflix?
           <button
             type='submit'
             className='text-white hover:underline px-3'
-            onClick={() => setLogin(false)}
+            onClick={() => {
+              setLogin(false);
+              wagmi = true;
+            }}
           >
             Sign Up Now
           </button>
