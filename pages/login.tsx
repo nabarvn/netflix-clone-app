@@ -10,9 +10,8 @@ interface Inputs {
 }
 
 const login = () => {
-  const [login, setLogin] = useState(false);
+  const [login, setLogin] = useState(true);
   const { signIn, signUp } = useAuth();
-  let wagmi = false;
 
   const {
     register,
@@ -52,7 +51,7 @@ const login = () => {
         onSubmit={handleSubmit(onSubmit)}
       >
         <h1 className='text-4xl font-semibold'>
-          {wagmi ? "Sign Up" : "Sign In"}
+          {login ? "Sign In" : "Sign Up"}
         </h1>
         <div className='space-y-4'>
           <label className='inline-block w-full'>
@@ -90,7 +89,7 @@ const login = () => {
           className='w-full rounded bg-[#e50914] py-3 font-semibold'
           onClick={() => setLogin(true)}
         >
-          {wagmi ? "Sign Up" : "Sign In"}
+          {login ? "Sign In" : "Sign Up"}
         </button>
         <div className='text-[gray]'>
           New to Netflix?
@@ -99,7 +98,6 @@ const login = () => {
             className='text-white hover:underline px-3'
             onClick={() => {
               setLogin(false);
-              wagmi = true;
             }}
           >
             Sign Up Now
