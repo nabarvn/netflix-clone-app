@@ -52,7 +52,7 @@ const login = () => {
         onSubmit={handleSubmit(onSubmit)}
       >
         <h1 className='text-4xl font-semibold'>
-          {wagmi ? "Sign In" : "Sign Up"}
+          {wagmi ? "Sign Up" : "Sign In"}
         </h1>
         <div className='space-y-4'>
           <label className='inline-block w-full'>
@@ -90,7 +90,7 @@ const login = () => {
           className='w-full rounded bg-[#e50914] py-3 font-semibold'
           onClick={() => setLogin(true)}
         >
-          {wagmi ? "Sign In" : "Sign Up"}
+          {wagmi ? "Sign Up" : "Sign In"}
         </button>
         <div className='text-[gray]'>
           New to Netflix?
