@@ -1,7 +1,7 @@
 # Netflix Clone
 
 This app looks similar to Netflix, which is the world's most famous OTT platform. 
-Built for educational purpose only.
+Built for educational purposes only.
 
 
 
@@ -13,7 +13,7 @@ Built for educational purpose only.
 </div>
 
 <p align="center">
-  <a href="https://ott-platform.vercel.app/" target="_blank" rel="noopener">View Project</a>
+  <a href="https://ott-platform.vercel.app/" target="_blank">View Project</a>
 </p>
 
 
@@ -36,7 +36,7 @@ Thanks to *Ali* for the awesome tutorial!
 
 
 
-# Next.js + Tailwind CSS Example
+## Next.js + Tailwind CSS Example
 
 This example shows how to use [Tailwind CSS](https://tailwindcss.com/) [(v3.0)](https://tailwindcss.com/blog/tailwindcss-v3) with Next.js. It follows the steps outlined in the official [Tailwind docs](https://tailwindcss.com/docs/guides/nextjs).
 
