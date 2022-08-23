@@ -13,7 +13,7 @@ Built for educational purpose only.
 </div>
 
 <p align="center">
-  <a href="https://ott-platform.vercel.app/" target="_blank">View Project</a>
+  [View Project](https://ott-platform.vercel.app/){:target="_blank"}
 </p>
 
 
