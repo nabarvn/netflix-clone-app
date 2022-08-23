@@ -1,6 +1,6 @@
 # Netflix Clone
 
-This app looks similar to Netflix, which is the world's most famous OTT platform. \n
+This app looks similar to Netflix, which is the world's most famous OTT platform. 
 Built for educational purpose only.
 
 
@@ -13,7 +13,7 @@ Built for educational purpose only.
 </div>
 
 <p align="center">
-  [View Project](https://ott-platform.vercel.app/){:target="_blank"}
+  <a href="https://ott-platform.vercel.app/" target="_blank" rel="noopener">View Project</a>
 </p>
 
 
@@ -32,7 +32,7 @@ Built for educational purpose only.
 
 ## Credits
 
-Thanks to *Ali* for the awesome tutorial! \n\n\n
+Thanks to *Ali* for the awesome tutorial!
 
 
 
