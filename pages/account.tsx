@@ -44,7 +44,7 @@ const account = ({ products }: Props) => {
         <div className='flex flex-col gap-x-4 md:flex-row md:items-center'>
           <h1 className='text-3xl md:text-4xl'>Account</h1>
           <div className='-ml-0.5 flex items-center gap-x-1.5'>
-            <img src='https://rb.gy/4vfk4r' alt='' className='h-7 w-7' />
+            <img src='/memberSince.png' alt='' className='h-7 w-7' />
             <p className='text-xs font-semibold text-[#555]'>
               Member since {subscription?.created}
             </p>
