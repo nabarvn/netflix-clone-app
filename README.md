@@ -1,4 +1,42 @@
-# Next.js + Tailwind CSS Example
+# Netflix Clone
+
+This app looks similar to Netflix, which is the world's most famous OTT platform. 
+Built for educational purposes only.
+
+
+
+## Screenshot
+
+
+<div align="center">
+  <img src="./screenshot.png">
+</div>
+
+<p align="center">
+  <a href="https://ott-platform.vercel.app/" target="_blank">View Project</a>
+</p>
+
+
+
+## Built with:
+
+* Next.js
+* Typescript
+* Tailwind CSS
+* React.js
+* Material UI
+* Firebase
+* Stripe
+
+
+
+## Credits
+
+Thanks to *Ali* for the awesome tutorial!
+
+
+
+## Next.js + Tailwind CSS Example
 
 This example shows how to use [Tailwind CSS](https://tailwindcss.com/) [(v3.0)](https://tailwindcss.com/blog/tailwindcss-v3) with Next.js. It follows the steps outlined in the official [Tailwind docs](https://tailwindcss.com/docs/guides/nextjs).
 
