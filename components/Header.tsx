@@ -29,7 +29,9 @@ const Header = () => {
       <div className='flex items-center space-x-2 md:space-x-10'>
         {/* All the stylings are done with mobile-first approach in mind */}
         <img
-          src='https://rb.gy/ulxxee'
+          // src='https://rb.gy/ulxxee'
+          src='/homeButton.png'
+          alt='Home Button'
           width={100}
           height={100}
           className='cursor-pointer object-contain' //object-contain is being used to maintain the aspect ratio of the image
@@ -52,9 +54,12 @@ const Header = () => {
         <BellIcon className='h-6 w-6 sm:inline' />
         <Link href='/account'>
           <img
-            src='https://rb.gy/g1pwyx'
-            alt=''
+            // src='https://rb.gy/g1pwyx'
+            src='/avatar.png'
+            alt='Avatar'
             className='cursor-pointer rounded'
+            width={40}
+            height={40}
           />
         </Link>
       </div>

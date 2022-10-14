@@ -19,23 +19,32 @@ const account = ({ products }: Props) => {
     <div>
       <Head>
         <title>Account Settings</title>
-        <link rel='icon' href='https://rb.gy/ulxxee' />
+        <link
+          rel='icon'
+          // href='https://rb.gy/ulxxee'
+          href='/icon.png'
+        />
       </Head>
 
       <header className='bg-[#141414]'>
         <Link href='/'>
           <img
-            src='https://rb.gy/ulxxee'
-            width={120}
-            height={120}
+            // src='https://rb.gy/ulxxee'
+            src='/homeButton.png'
+            alt='Home Button'
+            width={100}
+            height={100}
             className='cursor-pointer object-contain'
           />
         </Link>
         <Link href='/account'>
           <img
-            src='https://rb.gy/g1pwyx'
-            alt=''
+            // src='https://rb.gy/g1pwyx'
+            src='/avatar.png'
+            alt='Avatar'
             className='cursor-pointer rounded'
+            width={40}
+            height={40}
           />
         </Link>
       </header>
@@ -44,7 +53,11 @@ const account = ({ products }: Props) => {
         <div className='flex flex-col gap-x-4 md:flex-row md:items-center'>
           <h1 className='text-3xl md:text-4xl'>Account</h1>
           <div className='-ml-0.5 flex items-center gap-x-1.5'>
-            <img src='/memberSince.png' alt='' className='h-7 w-7' />
+            <img
+              src='/memberSince.png'
+              alt='Member Since'
+              className='h-7 w-7'
+            />
             <p className='text-xs font-semibold text-[#555]'>
               Member since {subscription?.created}
             </p>
