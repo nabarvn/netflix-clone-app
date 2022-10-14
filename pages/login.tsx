@@ -93,7 +93,7 @@ const login = () => {
         </div>
         <button
           className='w-full rounded bg-[#e50914] py-3 font-semibold'
-          onClick={() => setLogin(true)}
+          onClick={() => (login ? setLogin(true) : setLogin(false))}
         >
           {login ? "Sign In" : "Sign Up"}
         </button>
