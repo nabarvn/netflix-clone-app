@@ -32,11 +32,11 @@ const Banner = ({ netflixOriginals }: Props) => {
         />
       </div>
 
-      <h1 className='text-2xl font-bold md:text-4xl lg:text-7xl'>
+      <h1 className='text-2xl font-bold md:text-4xl lg:text-5xl xl:text-7xl pr-5'>
         {movie?.title || movie?.name || movie?.original_name}
       </h1>
 
-      <p className='max-w-xs text-xs text-shadow-md md:max-w-3xl md:text-3xl lg:max-w-5xl lg:text-xl'>
+      <p className='max-w-xs text-xs text-shadow-md md:max-w-3xl md:text-xl lg:max-w-5xl xl:text-3xl pr-5'>
         {movie?.overview}
       </p>
 
@@ -48,7 +48,8 @@ const Banner = ({ netflixOriginals }: Props) => {
             setShowModal(true);
           }}
         >
-          <FaPlay className='h-4 w-4 text-black md:h-7 md:w-7' /> Play
+          <FaPlay className='h-3 w-3 text-black xl:h-5 xl:w-5' />
+          <span className='self-center'>Play</span>
         </button>
         <button
           className='bannerButton bg-[gray]/70'
@@ -57,7 +58,8 @@ const Banner = ({ netflixOriginals }: Props) => {
             setShowModal(true);
           }}
         >
-          More Info <InformationCircleIcon className='h-5 w-5 md:h-8 md:w-8' />
+          <span className='self-center'>More Info</span>
+          <InformationCircleIcon className='h-5 w-5 xl:h-7 xl:w-7' />
         </button>
       </div>
     </div>

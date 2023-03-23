@@ -158,7 +158,7 @@ const login = () => {
                 setLogin(true);
               }}
             >
-              Sign In Now!
+              Sign In!
             </button>
           </div>
         )}
