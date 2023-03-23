@@ -1,7 +1,7 @@
 # Netflix Clone
 
 This app looks similar to Netflix, which is the world's most famous OTT platform. 
-Built for educational purposes only. Feel free to use dummy credentials. Card: 4242 4242 4242 - (4/24) - (424).
+Built for educational purposes only. Feel free to use dummy credentials. Card: (4242 4242 4242 4242) - (4/24) - (424).
 
 
 
