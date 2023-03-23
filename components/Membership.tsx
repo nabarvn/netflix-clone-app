@@ -14,7 +14,7 @@ const Membership = () => {
   useEffect(() => {
     setTimeout(() => {
       setShowText(true);
-    }, 900);
+    }, 1000);
   }, []);
 
   const manageSubscription = () => {
