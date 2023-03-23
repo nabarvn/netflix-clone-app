@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useRouter } from "next/router";
+import { useState, useEffect } from "react";
 import useAuth from "../hooks/useAuth";
 import useSubscription from "../hooks/useSubscription";
 import { goToBillingPortal } from "../lib/stripe";
@@ -8,6 +9,22 @@ const Membership = () => {
   const { user } = useAuth();
   const subscription = useSubscription(user);
   const [isBillingLoading, setBillingLoading] = useState(false);
+  const [isPageLoading, setPageLoading] = useState(false);
+  const router = useRouter();
+
+  useEffect(() => {
+    router.events.on("routeChangeStart", () => {
+      setPageLoading(true);
+    });
+
+    router.events.on("routeChangeComplete", () => {
+      setPageLoading(false);
+    });
+
+    router.events.on("routeChangeError", () => {
+      setPageLoading(false);
+    });
+  }, [router]);
 
   const manageSubscription = () => {
     if (subscription) {
@@ -28,7 +45,13 @@ const Membership = () => {
           {isBillingLoading ? (
             <Loader color='dark:fill-[#e50914]' />
           ) : !subscription?.cancel_at_period_end ? (
-            "Cancel Membership"
+            isPageLoading ? (
+              <Loader color='dark:fill-[#e50914]' />
+            ) : (
+              "Cancel Membership"
+            )
+          ) : isPageLoading ? (
+            <Loader color='dark:fill-[#e50914]' />
           ) : (
             "Restart Membership"
           )}
