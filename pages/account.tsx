@@ -81,7 +81,7 @@ const account = ({ products }: Props) => {
             }
           </div>
 
-          <p className='cursor-pointer text-blue-500 hover:underline md:text-right'>
+          <p className='cursor-default text-blue-500 hover:underline md:text-right'>
             Change Plan
           </p>
         </div>
@@ -104,8 +104,6 @@ const account = ({ products }: Props) => {
   );
 };
 
-export default account;
-
 export const getStaticProps: GetStaticProps = async () => {
   const products = await getProducts(payments, {
     includePrices: true,
@@ -120,3 +118,5 @@ export const getStaticProps: GetStaticProps = async () => {
     },
   };
 };
+
+export default account;

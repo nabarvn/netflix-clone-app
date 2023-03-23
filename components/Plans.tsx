@@ -74,7 +74,9 @@ const Plans = ({ products }: Props) => {
               <div
                 key={product.id}
                 className={`planBox ${
-                  selectedPlan?.id === product.id ? "opacity-100" : "opacity-60"
+                  selectedPlan?.id === product.id
+                    ? "after:planBoxPointer opacity-100"
+                    : "opacity-60"
                 }`}
                 onClick={() => setSelectedPlan(product)}
               >
@@ -87,7 +89,7 @@ const Plans = ({ products }: Props) => {
 
           <button
             disabled={!selectedPlan || isBillingLoading}
-            className={`mx-auto w-11/12 rounded bg-[#E50914] py-4 text-xl shadow hover:bg-[#f6121d] md:w-[420px] ${
+            className={`mx-auto w-11/12 rounded disabled:cursor-default disabled:hover:bg-[#E50914] bg-[#E50914] py-4 text-xl shadow hover:bg-[#f6121d] md:w-[420px] ${
               isBillingLoading && "opacity-60"
             }`}
             onClick={subscribeToPlan}

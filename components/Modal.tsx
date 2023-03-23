@@ -1,3 +1,5 @@
+import MuiModal from "@mui/material/Modal";
+
 import {
   CheckIcon,
   PlusIcon,
@@ -6,7 +8,7 @@ import {
   VolumeUpIcon,
   XIcon,
 } from "@heroicons/react/solid";
-import MuiModal from "@mui/material/Modal";
+
 import {
   collection,
   deleteDoc,
@@ -15,9 +17,10 @@ import {
   onSnapshot,
   setDoc,
 } from "firebase/firestore";
+
 import { useEffect, useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
-import { FaPlay } from "react-icons/fa";
+// import { FaPlay } from "react-icons/fa";
 import ReactPlayer from "react-player/lazy";
 import { useRecoilState } from "recoil";
 import { modalState, movieState } from "../atoms/modalAtom";
@@ -33,6 +36,7 @@ const Modal = () => {
   const [genres, setGenres] = useState<Genre[]>([]);
   const [muted, setMuted] = useState(false);
   const [addedToList, setAddedToList] = useState(false);
+  const [isLiked, setIsLiked] = useState(false);
   const { user } = useAuth();
 
   const toastStyle = {
@@ -166,8 +170,13 @@ const Modal = () => {
                 )}
               </button>
 
-              <button className='modalButton'>
-                <ThumbUpIcon className='h-7 w-7' />
+              <button
+                className='modalButton'
+                onClick={() => setIsLiked(!isLiked)}
+              >
+                <ThumbUpIcon
+                  className={`h-7 w-7 ${isLiked && "text-blue-700"}`}
+                />
               </button>
             </div>
 
