@@ -20,7 +20,7 @@
   }
 
   .bannerButton {
-    @apply flex items-center gap-x-2 rounded px-5 py-1.5 text-sm font-semibold transition hover:opacity-75 xl:py-2.5 xl:px-8 lg:text-xl xl:text-2xl;
+    @apply flex items-center gap-x-2 rounded px-3 py-1 md:px-5 md:py-1.5 text-sm font-semibold transition hover:opacity-75 xl:py-2.5 xl:px-8 lg:text-xl;
   }
 
   .input {
