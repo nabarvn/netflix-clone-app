@@ -130,7 +130,7 @@ const login = () => {
               "Sign Up"
             )
           ) : (
-            <Loader color='dark:fill-gray-300' />
+            <Loader color='fill-gray-300' />
           )}
         </button>
         {!isSignUp ? (
