@@ -45,15 +45,9 @@ const Membership = () => {
           {isBillingLoading ? (
             <Loader color='dark:fill-[#e50914]' />
           ) : !subscription?.cancel_at_period_end ? (
-            isPageLoading ? (
-              <Loader color='dark:fill-[#e50914]' />
-            ) : (
-              "Cancel Membership"
-            )
-          ) : isPageLoading ? (
-            <Loader color='dark:fill-[#e50914]' />
+            !isPageLoading && "Cancel Membership"
           ) : (
-            "Restart Membership"
+            !isPageLoading && "Restart Membership"
           )}
         </button>
       </div>
