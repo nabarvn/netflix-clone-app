@@ -30,6 +30,11 @@ const Thumbnail = ({ movie }: Props) => {
         className='rounded-sm object-cover md:rounded'
         layout='fill'
       />
+      <div className='flex absolute w-full h-full lg:opacity-0 lg:hover:opacity-100 transition duration-300 p-5'>
+        <span className='text-base lg:text-xl font-semibold text-[#e5e5e5] self-end'>
+          {movie?.title || movie?.name || movie?.original_name}
+        </span>
+      </div>
     </div>
   );
 };
