@@ -1,7 +1,8 @@
 import Head from "next/head";
-import Image from "next/image";
-import { useState } from "react";
+import { useRouter } from "next/router";
+import { useState, useEffect } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
+import Loader from "../components/Loader";
 import useAuth from "../hooks/useAuth";
 
 interface Inputs {
@@ -11,13 +12,30 @@ interface Inputs {
 
 const login = () => {
   const [login, setLogin] = useState(true);
+  const [isPageLoading, setPageLoading] = useState(false);
+  const [isSignUp, setIsSignUp] = useState(false);
   const { signIn, signUp } = useAuth();
+  const router = useRouter();
 
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm<Inputs>();
+
+  useEffect(() => {
+    router.events.on("routeChangeStart", () => {
+      setPageLoading(true);
+    });
+
+    router.events.on("routeChangeComplete", () => {
+      setPageLoading(false);
+    });
+
+    router.events.on("routeChangeError", () => {
+      setPageLoading(false);
+    });
+  }, [router]);
 
   const onSubmit: SubmitHandler<Inputs> = async ({ email, password }) => {
     if (login) {
@@ -28,7 +46,7 @@ const login = () => {
   };
 
   const refreshPage = () => {
-    window.location.reload();
+    router.reload();
   };
 
   return (
@@ -43,11 +61,10 @@ const login = () => {
         />
       </Head>
 
-      <Image
+      <img
         src='https://rb.gy/p2hphi'
-        layout='fill'
-        className='-z-10 !hidden opacity-60 sm:!inline'
-        objectFit='cover'
+        className='absolute -z-10 !hidden opacity-60 sm:!inline'
+        style={{ width: "100%", height: "100%", objectFit: "cover" }}
       />
 
       <button onClick={refreshPage}>
@@ -66,7 +83,7 @@ const login = () => {
         onSubmit={handleSubmit(onSubmit)}
       >
         <h1 className='text-4xl font-semibold'>
-          {login ? "Sign In" : "Sign Up"}
+          {!isSignUp ? "Sign In" : "Sign Up"}
         </h1>
         <div className='space-y-4'>
           <label className='inline-block w-full'>
@@ -101,23 +118,50 @@ const login = () => {
           </label>
         </div>
         <button
-          className='w-full rounded bg-[#e50914] py-3 font-semibold'
+          type='submit'
+          disabled={isPageLoading}
+          className='w-full rounded bg-[#e50914] hover:bg-[#f6121d] disabled:hover:bg-[#e50914] py-3 font-semibold'
           onClick={() => (login ? setLogin(true) : setLogin(false))}
         >
-          {login ? "Sign In" : "Sign Up"}
+          {!isPageLoading ? (
+            !isSignUp ? (
+              "Sign In"
+            ) : (
+              "Sign Up"
+            )
+          ) : (
+            <Loader color='dark:fill-gray-300' />
+          )}
         </button>
-        <div className='text-[gray]'>
-          New to Netflix?
-          <button
-            type='submit'
-            className='text-white hover:underline px-3'
-            onClick={() => {
-              setLogin(false);
-            }}
-          >
-            Sign Up Now
-          </button>
-        </div>
+        {!isSignUp ? (
+          <div className='text-[gray]'>
+            New to Netflix?
+            <button
+              type='button'
+              className='text-white hover:underline px-3'
+              onClick={() => {
+                setIsSignUp(true);
+                setLogin(false);
+              }}
+            >
+              Sign Up Now!
+            </button>
+          </div>
+        ) : (
+          <div className='text-[gray]'>
+            Already have an account?
+            <button
+              type='button'
+              className='text-white hover:underline px-3'
+              onClick={() => {
+                setIsSignUp(false);
+                setLogin(true);
+              }}
+            >
+              Sign In Now!
+            </button>
+          </div>
+        )}
       </form>
     </div>
   );
