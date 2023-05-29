@@ -50,7 +50,10 @@ const login = () => {
   };
 
   return (
-    <div className='relative flex h-screen w-screen flex-col bg-black md:items-center md:justify-center md:bg-transparent'>
+    <div
+      className='relative flex w-screen flex-col bg-black md:items-center md:justify-center md:bg-transparent'
+      style={{ height: "100svh" }}
+    >
       {/* Head components are really good for SEO */}
       <Head>
         <title>Netflix</title>
